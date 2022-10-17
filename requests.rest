@@ -1,0 +1,110 @@
+//Root
+GET http://localhost:3000/
+Content-type: application/json
+
+###
+// Register user
+POST http://localhost:3000/register-user
+Content-type: application/json
+
+{
+    "username": "Lukasz",
+    "firstName": "Lukasz",
+    "password": "password"
+}
+
+###
+// Register admin
+POST http://localhost:3000/register-admin
+Content-type: application/json
+
+{
+    "username": "TomAdmin",
+    "firstName": "Tomasz",
+    "password": "password1"
+}
+
+###
+// Login user
+POST http://localhost:3000/auth
+Content-type: application/json
+
+{
+    "username": "Lukasz",
+    "password": "password"
+}
+
+###
+// Login admin
+POST http://localhost:3000/auth
+Content-type: application/json
+
+{
+    "username": "TomAdmin",
+    "password": "password1"
+}
+
+###
+// Logout
+GET http://localhost:3000/logout
+
+###
+// get all books
+GET http://localhost:3000/books/
+ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6Ikx1a2FzeiIsInJvbGUiOjIwMDB9LCJpYXQiOjE2NjYwMTI4NDgsImV4cCI6MTY2NjAxNjQ0OH0.26st8HlB6C4ULmRrOLmvg8z5u6bGzen5ebSYAKT43Og
+
+###
+// get available books
+GET http://localhost:3000/books/?available=true
+ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6Ikx1a2FzeiIsInJvbGUiOjIwMDB9LCJpYXQiOjE2NjYwMTI4NDgsImV4cCI6MTY2NjAxNjQ0OH0.26st8HlB6C4ULmRrOLmvg8z5u6bGzen5ebSYAKT43Og
+
+###
+// create new book
+POST http://localhost:3000/books
+Content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6IlRvbUFkbWluIiwicm9sZSI6NTAwMH0sImlhdCI6MTY2NjAxMTczNywiZXhwIjoxNjY2MDE1MzM3fQ.xcZTtASW4Tpt8cYFc6Q9wat5-GCpblCzRNVaIdWMvvg
+
+{
+    "title": "bbbbb",
+    "ISBN": 22222,
+    "author": "Andrzej Nowak"
+}
+
+###
+// delete book
+DELETE http://localhost:3000/books/2
+Content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6IlRvbUFkbWluIiwicm9sZSI6NTAwMH0sImlhdCI6MTY2NjAxMzk3MiwiZXhwIjoxNjY2MDE3NTcyfQ.ErUdM2p8nOq2aK6KNxVaQIUR-7FUnMFD9sN5uuee93s
+
+{
+}
+
+###
+// update book
+PATCH http://localhost:3000/books/2
+Content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6IlRvbUFkbWluIiwicm9sZSI6NTAwMH0sImlhdCI6MTY2NjAxMTczNywiZXhwIjoxNjY2MDE1MzM3fQ.xcZTtASW4Tpt8cYFc6Q9wat5-GCpblCzRNVaIdWMvvg
+
+{   
+  //  "title": "o9test",
+    "ISBN": 9999,
+    "author": "Fabian Nowak"
+}
+
+###
+// borrow book
+PATCH http://localhost:3000/books/2/borrow
+Content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6Ikx1a2FzeiIsInJvbGUiOjIwMDB9LCJpYXQiOjE2NjYwMTI4NDgsImV4cCI6MTY2NjAxNjQ0OH0.26st8HlB6C4ULmRrOLmvg8z5u6bGzen5ebSYAKT43Og
+
+{   
+}
+
+###
+// return book
+PATCH http://localhost:3000/books/2/return
+Content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VybmFtZSI6Ikx1a2FzeiIsInJvbGUiOjIwMDB9LCJpYXQiOjE2NjYwMTI4NDgsImV4cCI6MTY2NjAxNjQ0OH0.26st8HlB6C4ULmRrOLmvg8z5u6bGzen5ebSYAKT43Og
+
+{   
+}
